@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="webApp" lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"
+	href="resources/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css"
+	href="resources/style.css" />
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="resources/bootstrap.min.js"></script>
+	<script type='text/javascript' src='resources/angular.min.js'></script>
+	<script type='text/javascript' src='app.js'></script>
+	<script type='text/javascript' src='product.js'></script>
+<title>Angular JS</title>
+</head>
+<body class="list-group" ng-controller="WebController as webApp">
+	
+	<header>
+		<h1 class="text-center">Stroer's Computers</h1>
+		<h2 class="text-center">– an Angular store –</h2>
+	</header>
+
+<!--  Products Container -->
+<div class="list-group">
+	<!--  Product Container -->
+	<div class="list-group-item" ng-repeat="product in webApp.products | orderBy:'-price'"
+		ng-hide="product.soldOut">
+		<!--  Product Titles -->
+		<product-title></product-title>
+		
+		<!--TODO: Image Gallery  -->
+		<img ng-src="{{product.images[0].full}}" />
+		
+		<!-- Panel Selection -->
+		<product-panels> </product-panels>
+		<button ng-show="product.canPurchase">Add to cart</button>
+	</div>
+</div>
+
+</body>
+</html>

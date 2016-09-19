@@ -1,0 +1,62 @@
+[
+		{
+				"name" : "Laptop",
+				"price" : 253.35,
+				"description" : "Dell i-7 processor, 16gb of ram, Nvidea Embedded Video Card, 20 monitor. This laptop is smoother than the cream cheese you spread on your bagel.",
+				"images" : [ {
+
+					"full" : "resources/images/laptop.jpg",
+					"thumb" : "resources/images/laptopSide.jpg"
+
+				} ],
+				"reviews" : [ {
+					"stars" : 3,
+					"body" : "This laptop is average.",
+					"author" : "billyJoe@average.com"
+				}, {
+					"stars" : 5,
+					"body" : "This laptop is Grreattt~!.",
+					"author" : "tonytheTiger@frostedFlakes.com"
+				} ],
+				"canPurchase" : true,
+				"soldOut" : false
+		},
+		{
+				"name" : "Desktop",
+				"price" : 399.84,
+				"description" : "HP i-5 processor, 32gb of ram, Nvidea GTX780 Video Card. This desktop is known to play any game known to man flawlessly.",
+				"images" : [ {
+					"full" : "resources/images/desktop.jpg"
+				} ],
+				"reviews" : [ {
+					"stars" : 1,
+					"body" : "This desktop sucks!",
+					"author" : "EmoKid@hatesErrThing.com"
+				}, {
+					"stars" : 4,
+					"body" : "This desltop gets the job done.",
+					"author" : "JoeSmoe@WhoAmI.com"
+				} ],
+				"canPurchase" : true,
+				"soldOut" : false
+			},
+			{
+				"name" : "iPad",
+				"price" : 200.25,
+				"description" : "Touchpad Device used for Mobile Applications, Crap, total crap.",
+				"images" : [ {
+					"full" : "resources/images/iPad.jpg"
+				} ],
+				"reviews" : [ {
+					"stars" : 1,
+					"body" : "Garbage.",
+					"author" : "NoLies@theTruth.com"
+				}, {
+					"stars" : 1,
+					"body" : "keeps my table level.",
+					"author" : "MacSucks@Microsoft4Life.com"
+				} ],
+				"canPurchase" : false,
+				"soldOut" : false
+			}
+]

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type='text/javascript' src='resources/knockout-3.4.0.js'></script>
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<meta charset="ISO-8859-1">
+<title>KnockoutJS</title>
+</head>
+<body>
+	<div class='liveExample'>
+		<p>
+			First name: <input data-bind='value: firstName'>
+		</p>
+		<p>
+			Last name: <input data-bind='value: lastName'>
+		</p>
+		<h2>
+			Hello, <span data-bind='text: fullName'> </span>!
+		</h2>
+	</div>
+	<div>
+		You've clicked <span data-bind='text: numberOfClicks'>&nbsp;</span>
+		times
+	</div>
+	<button type="button" class="btn btn-primary"
+		data-bind='click: registerClick, disable: hasClickedTooManyTimes'>Click
+		me</button>
+
+	<div data-bind='visible: hasClickedTooManyTimes'>
+		That's too many clicks! Congratulations, I gave you a virus.
+		<button class="btn btn-danger" data-bind='click: resetClicks'>Reset
+			clicks</button>
+	</div>
+
+	<script type="text/javascript">
+//Here"s my data model
+
+var ViewModel = function(first, last) {
+    this.firstName = ko.observable(first);
+    this.lastName = ko.observable(last);
+ 
+    this.fullName = ko.computed(function() {
+        // Knockout tracks dependencies automatically. It knows that fullName depends on firstName and lastName, because these get called when evaluating fullName.
+        return this.firstName() + " " + this.lastName();
+    }, this);
+
+    this.numberOfClicks = ko.observable(0);
+    
+    this.registerClick = function() {
+        this.numberOfClicks(this.numberOfClicks() + 1);
+    };
+ 
+    this.resetClicks = function() {
+        this.numberOfClicks(0);
+    };
+ 
+    this.hasClickedTooManyTimes = ko.pureComputed(function() {
+        return this.numberOfClicks() >= 3;
+    }, this);
+
+};
+    ko.bindingHandlers.jqButton = {
+    	    init: function(element) {
+    	       $(element).button(); // Turns the element into a jQuery UI button
+    	    }
+    	};
+    
+ko.applyBindings(new ViewModel("Doug", "Stroer")); // This makes Knockout get to work
+</script>
+
+<div id="aside">
+			<p/>
+            <p>Please Check out some of my other Webpages.</p>
+            <ul>
+                <li><a href="http://localhost:8080/Knockout/index2.html">Angluar</a></li>
+                <li><a href="http://localhost:8080/jboss-javaee-webapp/index.jsf">RestWebApp</a></li>
+            </ul>
+        </div>
+
+</body>
+</html>
